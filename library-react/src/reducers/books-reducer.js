@@ -3,7 +3,7 @@ import * as a from './../actions/ActionTypes';
 let initialState = {
   isLoading: false,
   books: [],
-  locations: [],
+  //locations: [],
   error: null
 }
 

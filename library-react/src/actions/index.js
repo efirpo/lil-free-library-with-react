@@ -13,3 +13,42 @@ export const getBooksFailure = (error) => ({
   type: a.GET_BOOKS_FAILURE,
   error
 });
+
+export const requestLocations = () => ({
+  type: a.REQUEST_LOCATIONS
+})
+
+export const getLocationsSuccess = (locations) => ({
+  type: a.GET_LOCATIONS_SUCCESS,
+  locations
+})
+
+export const getLocationsFailure = (error) => ({
+  type: a.GET_LOCATIONS_FAILURE,
+  error
+})
+
+export const makeBookApiCall = () => {
+  return dispatch => {
+    dispatch(requestBooks);
+    return fetch(`http://localhost:5000/api/books`).then(response => response.json()).then((jsonifiedResponse) => {
+      dispatch(getBooksSuccess(jsonifiedResponse))
+      console.log("INSIDE API CALL");
+      console.log(jsonifiedResponse);
+    }).catch((error) => {
+      dispatch(getBooksFailure(error))
+    });
+  }
+}
+
+export const makeLocationApiCall = () => {
+  return dispatch => {
+    dispatch(requestLocations);
+    return fetch(`http://localhost:5000/api/locations`).then(response => response.json()).then((jsonifiedResponse) => {
+      dispatch(getLocationsSuccess(jsonifiedResponse))
+      //onsole.log(jsonifiedResponse.results);
+    }).catch((error) => {
+      dispatch(getLocationsFailure(error))
+    });
+  }
+}

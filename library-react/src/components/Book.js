@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Locations(props) {
+function Book(props) {
   return (
     <></>
   )
 }
-export default Locations
+
+export default Book;

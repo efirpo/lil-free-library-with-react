@@ -2,12 +2,12 @@ import * as a from './../actions/ActionTypes';
 
 let initialState = {
   isLoading: false,
-  books: [],
+  // books: [],
   locations: [],
   error: null
 }
 
-export default (state = initialState, action => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case a.REQUEST_LOCATIONS:
       return Object.assign({}, state, {
@@ -25,4 +25,4 @@ export default (state = initialState, action => {
       });
     default: return state
   }
-})
+}
