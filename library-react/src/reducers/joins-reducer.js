@@ -2,7 +2,7 @@ import * as a from './../actions/ActionTypes';
 
 let initialState = {
   isLoading: false,
-  locations: [],
+  joins: [],
   error: null
 }
 

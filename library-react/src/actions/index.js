@@ -46,8 +46,8 @@ export const makeBookApiCall = () => {
     dispatch(requestBooks);
     return fetch(`http://localhost:5000/api/books`).then(response => response.json()).then((jsonifiedResponse) => {
       dispatch(getBooksSuccess(jsonifiedResponse))
-      console.log("INSIDE API CALL");
-      console.log(jsonifiedResponse);
+      // console.log("INSIDE API CALL");
+      // console.log(jsonifiedResponse);
     }).catch((error) => {
       dispatch(getBooksFailure(error))
     });
@@ -71,7 +71,7 @@ export const makeJoinApiCall = (fetchString) => {
     dispatch(requestJoins);
     return fetch(`http://localhost:5000/api/join` + fetchString).then(response => response.json()).then((jsonifiedResponse) => {
       dispatch(getJoinsSuccess(jsonifiedResponse))
-      console.log(jsonifiedResponse)
+      // console.log(jsonifiedResponse)
     }).catch((error) => {
       dispatch(getJoinsFailure(error))
     })
