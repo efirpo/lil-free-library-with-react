@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { makeBookApiCall } from './../actions/index';
 import { makeLocationApiCall } from './../actions/index'
@@ -7,6 +7,7 @@ import Locations from './Locations';
 
 
 function App(props) {
+  const [toggleList, toggleListButton] = useState(false)
 
   useEffect(() => {
     const { dispatch } = props
@@ -26,11 +27,20 @@ function App(props) {
     });
 
   }, []);
-
+  const swapList = () => {
+    return toggleListButton(!toggleList)
+  }
+  let visible;
+  if (toggleList) {
+    visible = <Books books={props.books} />
+  } else {
+    visible = <Locations locations={props.locations} />
+  }
   return (
     <React.Fragment>
-      <Books books={props.books} />
-      <Locations locations={props.locations} />
+      <button onClick={swapList}>Swap Lists</button>
+      {visible}
+
     </React.Fragment>
   );
 }
