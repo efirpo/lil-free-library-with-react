@@ -18,16 +18,14 @@ function App(props) {
     callApi().then(() => {
       console.log("BOOK PROPS:");
       console.table(props.books);
-      console.log(props.loading);
+      //console.log(props.loading);
       console.log("LOC PROPS:")
       console.table(props.locations)
       console.log("ALL PROPS:")
       console.table(props)
     });
 
-    // dispatch(makeBookApiCall());
-    // dispatch(makeLocationApiCall());
-  }, [props]);
+  }, []);
 
   return (
     <React.Fragment>
