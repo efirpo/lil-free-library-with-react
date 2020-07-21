@@ -28,6 +28,19 @@ export const getLocationsFailure = (error) => ({
   error
 })
 
+export const requestJoins = () => ({
+  type: a.REQUEST_JOINS
+})
+
+export const getJoinsSuccess = (joins) => ({
+  type: a.GET_JOINS_SUCCESS,
+  joins
+})
+export const getJoinsFailure = (error) => ({
+  type: a.GET_JOINS_FAILURE,
+  error
+})
+
 export const makeBookApiCall = () => {
   return dispatch => {
     dispatch(requestBooks);
@@ -50,5 +63,17 @@ export const makeLocationApiCall = () => {
     }).catch((error) => {
       dispatch(getLocationsFailure(error))
     });
+  }
+}
+
+export const makeJoinApiCall = (fetchString) => {
+  return dispatch => {
+    dispatch(requestJoins);
+    return fetch(`http://localhost:5000/api/join` + fetchString).then(response => response.json()).then((jsonifiedResponse) => {
+      dispatch(getJoinsSuccess(jsonifiedResponse))
+      console.log(jsonifiedResponse)
+    }).catch((error) => {
+      dispatch(getJoinsFailure(error))
+    })
   }
 }

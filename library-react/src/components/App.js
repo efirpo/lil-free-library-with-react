@@ -14,6 +14,7 @@ function App(props) {
     async function callApi() {
       dispatch(makeBookApiCall());
       dispatch(makeLocationApiCall());
+      // dispatch(makeJoinApiCall());
     }
 
     callApi().then(() => {

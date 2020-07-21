@@ -1,10 +1,11 @@
 import React from 'react';
+import BookDetail from "./BookDetail";
 
 function Books(props) {
   let listVisible;
   if (props.books) {
     listVisible = (props.books.books).map((book, index) => {
-      return <li>{index}. {book.title}, {book.author}</li>
+      return <BookDetail title={book.title} author={book.author} condition={book.condition} available={book.available} id={book.bookId} />
     })
   }
 
