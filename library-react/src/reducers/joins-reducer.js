@@ -13,6 +13,7 @@ export default (state = initialState, action) => {
         isLoading: true
       })
     case a.GET_JOINS_SUCCESS:
+      console.log("ACTION.JOINS: " + action.joins);
       return Object.assign({}, state, {
         isLoading: false,
         joins: action.joins

@@ -66,10 +66,12 @@ export const makeLocationApiCall = () => {
   }
 }
 
-export const makeJoinApiCall = (fetchString) => {
+export const makeJoinApiCall = () => {
+
   return dispatch => {
     dispatch(requestJoins);
-    return fetch(`http://localhost:5000/api/join` + fetchString).then(response => response.json()).then((jsonifiedResponse) => {
+    return fetch(`http://localhost:5000/api/join`).then(response => response.json()).then((jsonifiedResponse) => {
+      console.log(jsonifiedResponse);
       dispatch(getJoinsSuccess(jsonifiedResponse))
       // console.log(jsonifiedResponse)
     }).catch((error) => {

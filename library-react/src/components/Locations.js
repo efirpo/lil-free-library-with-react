@@ -4,7 +4,7 @@ function Locations(props) {
   let listVisible;
   if (props.locations) {
     listVisible = (props.locations.locations).map((loc, index) => {
-      return <li>{index}. {loc.name}</li>
+      return <li key={index}>{index}. {loc.name}</li>
     })
   }
   return (
