@@ -4,7 +4,7 @@ import BookDetail from "./BookDetail";
 function Books(props) {
   let listVisible;
   if (props.books) {
-    listVisible = (props.books.books).map((book, index) => {
+    listVisible = (props.books.books).map((book) => {
       return <BookDetail title={book.title} author={book.author} condition={book.condition} available={book.available} id={book.bookId} key={book.bookId} />
     })
   }
